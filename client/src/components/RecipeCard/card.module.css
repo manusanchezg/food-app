@@ -1,0 +1,18 @@
+.title{
+    color: #E3E7D3;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+.image{
+    margin-bottom: 1em;
+    width: 18em;
+    height: 13em;
+}
+.text{
+    color: #E3E7D3;
+    font-size: 1.1em;
+}
+.dietType{
+    text-decoration: underline;
+    font-size: 1.2em;
+}
