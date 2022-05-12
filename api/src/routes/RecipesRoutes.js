@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getAllFood, getFoodId, SearchRecipes } = require("../controllers");
+const { getAllFood, getFoodId, SearchRecipes, deleteRecipe } = require("../controllers");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
     res.status(404).json(error.message);
   }
 });
+
 
 router.get("/:idReceta", async (req, res) => {
   const { idReceta } = req.params;

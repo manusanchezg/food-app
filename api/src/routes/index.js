@@ -5,6 +5,7 @@ const express = require('express')
 const recipes =  require("./RecipesRoutes")
 const newRecipe = require("./NewRecipeRoute")
 const types = require("./TypesRoutes")
+const deleteRecipe = require("./DeleteRecipeRoute")
 
 
 const router = Router();
@@ -16,5 +17,6 @@ router.use(express.json())
 router.use("/recipes", recipes)
 router.use("/recipe", newRecipe)
 router.use("/types", types)
+router.use("/deleteRecipe", deleteRecipe)
 
 module.exports = router;

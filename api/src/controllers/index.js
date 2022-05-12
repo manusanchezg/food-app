@@ -2,13 +2,15 @@ const axios = require("axios");
 require("dotenv").config();
 const { API_KEY } = process.env;
 const { Recipe, Diet } = require("../db");
+const food = require("../../../db.json")
 
 async function getAllFood() {
   //Gets the food from the API and DB and it saved in an array//
-  const getFood = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
-  );
-  const mappedGetFood = getFood.data.results.map((recipe) => {
+  const getFood = food
+  // await axios.get(
+  //  `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+  //);
+  const mappedGetFood = getFood.map((recipe) => {
     return {
       spoonacularScore: recipe.spoonacularScore,
       healthScore: recipe.healthScore,
@@ -169,10 +171,21 @@ async function createNewRecipe(
   return `Your recipe "${newRecipe.title}" was created succesfully! 👏👏👏`;
 }
 
+async function deleteRecipe(idReceta){
+  const recipe = await getFoodId(idReceta)
+  await Recipe.destroy({
+    where: {
+      id: idReceta
+    }
+  })
+  return `The recipe ${recipe.title} was deleted succesfully`
+}
+
 module.exports = {
   getAllFood,
   getFoodId,
   createNewRecipe,
   SearchRecipes,
   getDiets,
+  deleteRecipe,
 };
