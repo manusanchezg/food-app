@@ -8,6 +8,7 @@ import CreateRecipe from "./components/CreateRecipe";
 function App() {
   return (
     <>
+      {/* <Route exact path={"/*"} render={ <h1>This route does not exist</h1> }/> */}
       <Route exact path={"/"} component={homePage} />
       <Route exact path={"/recipes"} component={Recipes} />
       <Route exact path={"/recipes/:id"} component={RecipeDetail} />

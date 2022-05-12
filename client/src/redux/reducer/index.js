@@ -8,7 +8,8 @@ import {
   GET_RECIPES_BY_NAME,
   CLEAR_STATE,
   GET_DIETS,
-  POST_CHARACTER
+  POST_RECIPE,
+  DELETE_RECIPE
 } from "../actions/Actions";
 
 const initialState = {
@@ -106,17 +107,15 @@ export default function reducer(state = initialState, { type, payload }) {
               ...state,
               diets: payload
             }
-            case POST_CHARACTER:
+            case POST_RECIPE:
               return{
                 ...state
               }
+              case DELETE_RECIPE:
+                return{
+                  ...state,
+                }
     default:
       return { ...state };
   }
 }
-
-
-
-// payload === "all"
-// ? allRecipes
-// : allRecipes.filter((recipe) => recipe.diets.includes(payload) || recipe.diets.map(object => object.name).includes(payload));

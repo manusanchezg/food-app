@@ -37,6 +37,7 @@ export default function Recipes() {
             currentRecipes.map((recipe) => (
               <div className={style.card} key={recipe.id}>
                 <RecipeCard
+                  myDataBase = {recipe.myDataBase}
                   title={recipe.title}
                   image={recipe.image}
                   diets={

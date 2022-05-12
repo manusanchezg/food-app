@@ -16,4 +16,6 @@ export const CLEAR_STATE = "CLEAR_STATE"
 
 export const GET_DIETS = "GET_DIETS"
 
-export const POST_CHARACTER = "POST_CHARACTER"
+export const POST_RECIPE = "POST_RECIPE"
+
+export const DELETE_RECIPE = "DELETE_RECIPE"
