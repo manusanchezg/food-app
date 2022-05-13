@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 const { API_KEY } = process.env;
 const { Recipe, Diet } = require("../db");
-const food = require("../../../db.json")
+const food = require("../../db.json")
 
 async function getAllFood() {
   //Gets the food from the API and DB and it saved in an array//
