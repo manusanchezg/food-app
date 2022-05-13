@@ -12,13 +12,13 @@ import {
 
 export const getAllRecipes = () => (dispatch) => {
   return axios
-    .get("http://localhost:3001/recipes")
+    .get("https://myfoodpi.herokuapp.com/recipes")
     .then((json) => dispatch({ type: GET_ALL_RECIPES, payload: json.data }))
     .catch((error) => console.log(error));
 };
 export const getRecipeDetail = (id) => {
   return async (dispatch) => {
-    return fetch(`http://localhost:3001/recipes/${id}`)
+    return fetch(`https://myfoodpi.herokuapp.com/recipes/${id}`)
       .then((response) => response.json())
       .then((json) => dispatch({ type: GET_RECIPE, payload: json }))
       .catch((error) => console.log(error));
@@ -50,7 +50,7 @@ export function getRecipesByNames(name) {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `http://localhost:3001/recipes?name=${name}`
+        `https://myfoodpi.herokuapp.com/recipes?name=${name}`
       );
       return dispatch({ type: GET_RECIPES_BY_NAME, payload: json.data });
     } catch (error) {
@@ -67,7 +67,7 @@ export function clearPage() {
 export function getDiets() {
   return async (dispatch) => {
     return axios
-      .get("http://localhost:3001/types")
+      .get("https://myfoodpi.herokuapp.com/types")
       .then((json) => dispatch({ type: GET_DIETS, payload: json.data }))
       .catch((error) => console.log(error));
   };
@@ -76,7 +76,7 @@ export function getDiets() {
 export function postRecipe(payload) {
   return function () {
     return axios
-      .post("http://localhost:3001/recipe", payload)
+      .post("https://myfoodpi.herokuapp.com/recipe", payload)
       .then(() => window.alert("Your recipe was created succesfully"))
       .catch((error) => window.alert(error.response.data));
   };
